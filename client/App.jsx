@@ -2,7 +2,7 @@ import React from 'react'
 const bgColor = '#fc5144'
 const fontColor = '#fff'
 
-export default () => <div style={{ background: bgColor, color: fontColor }}>React App</div>
+export default () => <div style={{ background: bgColor, color: fontColor }}>React</div>
 
 // export default class App extends React.Component {
 //   render () {

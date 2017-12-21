@@ -1,12 +1,15 @@
 const express = require('express')
 const ReactDomServer = require('react-dom/server')
+const favicon = require('serve-favicon')
 const fs = require('fs')
 const path = require('path')
-const app = express()
 
 // 判断环境
 const isDev = process.env.NODE_ENV === 'development'
 
+const app = express()
+// title icon
+app.use(favicon(path.join(__dirname, '../favicon.ico')))
 
 if (!isDev) {
   const serverEntry = require('../dist/server-entry').default
@@ -24,6 +27,5 @@ if (!isDev) {
 
 
 app.listen(9090, function (){
-  // console.log(serverEntry)
   console.log(`http://172.0.0.1:9090/`)
 })
