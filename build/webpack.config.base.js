@@ -7,6 +7,9 @@ module.exports = {
     // 静态资源引入 路径标识
     publicPath: '/public/'
   },
+  resolve: {
+    extensions: ['.jsx', '.js']
+  },
   module: {
     rules: [
       {

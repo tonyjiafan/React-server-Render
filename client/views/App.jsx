@@ -1,15 +1,28 @@
 import React from 'react'
-const bgColor = '#fc5144'
-const fontColor = '#fff'
+import {
+  Link,
+} from 'react-router-dom'
+import Routes from '../config/router'
 
-export default () => <div style={{ background: bgColor, color: fontColor }}>React</div>
+const style = {
+  bg: '#fc5144',
+  color: '#fff',
+}
 
-// export default class App extends React.Component {
-//   render () {
-//     const bgColor = '#fc5144'
-//     const fontColor = '#fff'
-//     return (
-//       <div style={{background: bgColor, color: fontColor}}>React App</div>
-//     )
-//   }
-// }
+export default class App extends React.Component {
+  componentDidMount() {
+    // do something here
+  }
+
+  render() {
+    return [
+      <div style={{ background: style.bg, color: style.color }} key="home">这Tm 是主页</div>,
+      <div key="banner">
+        <Link to="/list">首页</Link>
+        <br />
+        <Link to="/detail">详情页</Link>
+      </div>,
+      <Routes key="routes" />,
+    ]
+  }
+}

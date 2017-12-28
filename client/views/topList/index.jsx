@@ -1,11 +1,10 @@
 import React from 'react'
 
 export default class TopList extends React.Component {
-  componentDidMount(){
+  componentDidMount() {
     // do something
   }
-
-  render () {
+  render() {
     return (
       <div> this is top list</div>
     )

@@ -1,27 +1,28 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import {AppContainer} from 'react-hot-loader';  // eslint-disable-line
-import App from './views/App.jsx'; // eslint-disable-line
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { BrowserRouter } from 'react-router-dom'
+import { AppContainer } from 'react-hot-loader'  // eslint-disable-line
+import App from './views/App'
 
 const root = document.getElementById('root')
-
-if (typeof document !== 'undefined') {
-  const renderMethod = module.hot ? ReactDOM.render : ReactDOM.hydrate
-  const render = Component => { // eslint-disable-line
-    renderMethod(
-      <AppContainer>
+const renderMethod = module.hot ? ReactDOM.render : ReactDOM.hydrate;
+const render = (Component) => {
+  renderMethod(
+    <AppContainer>
+      <BrowserRouter>
         <Component />
-      </AppContainer>,
-      root,
-    )
-  }
-  // 渲染
-  render(App)
-  // 热更新
-  if (module.hot) {
-    module.hot.accept('./views/App.jsx', () => {
-      const NextApp = require('./views/App.jsx').default // eslint-disable-line
-      render(NextApp)
-    })
-  }
+      </BrowserRouter>
+    </AppContainer>,
+    root,
+  )
+}
+// 渲染
+render(App)
+
+// 热更新
+if (module.hot) {
+  module.hot.accept('./views/App', () => {
+    const NextApp = require('./views/App').default // eslint-disable-line
+    render(NextApp)
+  })
 }
