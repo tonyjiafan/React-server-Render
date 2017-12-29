@@ -1,15 +1,33 @@
 const express = require('express')
-const ReactDomServer = require('react-dom/server')
 const favicon = require('serve-favicon')
+const bodyParser = require('body-parser')
+const session = require('express-session')
+const ReactDomServer = require('react-dom/server')
 const fs = require('fs')
 const path = require('path')
+const app = express()
+
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extend: false }))
+
+app.use(session({
+  maxAge: 10 * 60 * 1000,
+  name: 'tid',
+  resave: false,
+  saveUninitialized: false,
+  secret: 'react cnode class'
+}))
 
 // 判断环境
 const isDev = process.env.NODE_ENV === 'development'
 
-const app = express()
 // title icon
 app.use(favicon(path.join(__dirname, '../favicon.ico')))
+
+app.use(`/api/user`, require('./util/handle-login'))
+app.use(`/api`, require('./util/proxy'))
+
 
 if (!isDev) {
   const serverEntry = require('../dist/server-entry').default
