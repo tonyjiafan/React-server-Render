@@ -4,8 +4,8 @@ import {
   Redirect,
 } from 'react-router-dom'
 
-import TopList from '../views/topList/index'
-import TopDetails from '../views/topDetails/index'
+import TopList from '../views/top-list/index'
+import TopDetails from '../views/top-details/index'
 
 export default () => [
   <Route path="/" render={() => <Redirect to="/list" />} exact key="first" />,
