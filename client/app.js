@@ -9,6 +9,7 @@ import appState from './store/app-state'
 
 const root = document.getElementById('root')
 const renderMethod = module.hot ? ReactDOM.render : ReactDOM.hydrate;
+
 const render = (Component) => {
   renderMethod(
     <AppContainer>
