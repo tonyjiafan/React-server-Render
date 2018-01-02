@@ -1,5 +1,8 @@
 import React from 'react'
 import axios from 'axios'
+import {
+  Link,
+} from 'react-router-dom'
 
 /* eslint-disable */
 export default class TestApi extends React.Component {
@@ -35,6 +38,13 @@ export default class TestApi extends React.Component {
   render() {
     return (
       <div>
+        <div key="banner">
+          <Link to="/list">首页</Link>
+          <br />
+          <Link to="/detail">详情页</Link>
+          <br />
+          <Link to="/test">测试api</Link>
+        </div>
         <button onClick={this.getTopics}>topics</button>
         <button onClick={this.login}>login</button>
         <button onClick={this.markAll}>markAll</button>
